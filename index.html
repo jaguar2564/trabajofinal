@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entre Hojas - Tiempos y costos</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Primero cargamos jQuery desde Google. -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
+  <!-- Después cargamos el código de la aplicación. -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="portada">
+    <img src="imagen/image_BORDÓ.jpg" alt="Cuadernos artesanales con hojas verdes">
+    <p class="marca">Entre Hojas</p>
+  </header>
+
+  <main class="contenedor">
+    <section class="intro">
+      <h1>Tiempos y Costos</h1>
+      <p>Explorá cuánto gastarías y si las horas disponibles alcanzan para la producción que tenés en mente.</p>
+    </section>
+
+    <div class="grilla">
+      <section class="tarjeta" id="produccion">
+        <h2>Armá tu producción</h2>
+        <p class="ayuda">Indicá las cantidades y las horas disponibles para este mes.</p>
+
+        <form id="formulario">
+          <div class="campo">
+            <label for="cantidad-0">Cuadernos sencillos</label>
+            <small class="ayuda" id="ayuda-0"></small>
+            <input type="number" id="cantidad-0" name="cantidad-0">
+            <p class="error" id="error-cantidad-0"></p>
+          </div>
+
+          <div class="campo">
+            <label for="cantidad-1">Cuadernos personalizados</label>
+            <small class="ayuda" id="ayuda-1"></small>
+            <input type="number" id="cantidad-1" name="cantidad-1">
+            <p class="error" id="error-cantidad-1"></p>
+          </div>
+
+          <div class="campo">
+            <label for="horas">Horas disponibles en el mes</label>
+            <small class="ayuda">Podés usar decimales. Por ejemplo, 0.5 equivale a media hora.</small>
+            <input type="number" id="horas" name="horas" step="any">
+            <p class="error" id="error-horas"></p>
+          </div>
+
+          <div class="botones">
+            <button type="submit" class="primario">Calcular</button>
+            <button type="button" id="btnRestablecer">Restablecer</button>
+          </div>
+        </form>
+        <p class="aviso" id="aviso"></p>
+
+        <div class="fijos">
+          <h3>Los gastos fijos del mes</h3>
+          <ul>
+            <li id="fijo-0"></li>
+            <li id="fijo-1"></li>
+          </ul>
+          <p class="total-fijo" id="total-fijo"></p>
+          <small class="ayuda">Se mantienen aunque no fabriques cuadernos.</small>
+        </div>
+      </section>
+
+      <section class="tarjeta" id="resultados">
+        <h2>Planificación estimada para un mes</h2>
+        <p class="vacio" id="res-vacio"></p>
+
+        <p class="resultado gasto-total" id="res-gasto"></p>
+
+        <div class="desglose">
+          <p class="resultado fila" id="res-fijos"></p>
+          <p class="resultado fila" id="res-variable-0"></p>
+          <p class="resultado fila" id="res-variable-1"></p>
+          <p class="resultado fila total" id="res-totalvariables"></p>
+        </div>
+
+        <div class="par">
+          <p class="resultado dato" id="res-horas-nec"></p>
+          <p class="resultado dato" id="res-horas-disp"></p>
+        </div>
+        <p class="resultado estado" id="res-estado"></p>
+
+        <div class="capacidades">
+          <p class="resultado dato centro" id="res-cap-0"></p>
+          <p class="resultado dato centro" id="res-cap-1"></p>
+        </div>
+        <p class="resultado aclaracion" id="res-aclaracion-1"></p>
+        <p class="resultado aclaracion" id="res-aclaracion-2"></p>
+      </section>
+    </div>
+
+    <p class="nota"><strong>Atención:</strong> los importes son simulados. El costo por cuaderno incluye materiales y embalaje. La capacidad depende solo del tiempo; se supone que hay materiales y herramientas suficientes.</p>
+  </main>
+
+  <footer class="pie">
+    <p>Entre Hojas · Cristian Gonzalez y Débora Panez · Programación en JavaScript · C.F.L. 428 La Plata · 2026</p>
+  </footer>
+</body>
+</html>

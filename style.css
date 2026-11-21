@@ -1,0 +1,423 @@
+/* =====================================================================
+   Entre Hojas · Tiempos y Costos
+   Hoja de estilos externa. Se enlaza en el <head> con:
+   <link rel="stylesheet" href="style.css">
+   ===================================================================== */
+
+/* ---------- 1. Variables de color y tipografía ---------- */
+:root {
+  --fondo: #f3f2e8;
+  --tarjeta: #fbfaf4;
+  --borde: #b3a53a;
+  --verde-oscuro: #2f4a3a;
+  --verde-medio: #4f7a5c;
+  --verde-suave: #dbe6d3;
+  --beige: #efe4d8;
+  --texto: #25352b;
+  --texto-suave: #6b776e;
+  --rojo: #8f3b2e;
+  --gris-suave: #e9e8df;
+
+  --fuente-titulos: Georgia, "Times New Roman", serif;
+  --fuente-texto: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --radio: 14px;
+}
+
+/* ---------- 2. Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: var(--fuente-texto);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  color: var(--verde-oscuro);
+  line-height: 1.2;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ---------- 3. Portada (imagen del comercio arriba de todo) ---------- */
+.portada {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  height: 180px;
+  margin: 0 auto;
+  background: var(--verde-suave);
+  overflow: hidden;
+}
+
+.portada img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.marca {
+  position: absolute;
+  left: 24px;
+  bottom: 18px;
+  padding: 8px 18px;
+  background: rgba(251, 250, 244, 0.92);
+  border-radius: 999px;
+  font-family: var(--fuente-titulos);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--verde-oscuro);
+}
+
+/* ---------- 4. Contenedor y encabezado de página ---------- */
+.contenedor {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px 24px 24px;
+}
+
+.intro {
+  margin-bottom: 28px;
+}
+
+.intro h1 {
+  font-family: var(--fuente-titulos);
+  font-size: 2.6rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.intro p {
+  max-width: 520px;
+  color: var(--texto-suave);
+}
+
+/* ---------- 5. Grilla de dos columnas ---------- */
+.grilla {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.tarjeta {
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 24px;
+  min-width: 0; /* evita que el contenido ensanche la columna */
+}
+
+.tarjeta h2 {
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+}
+
+.tarjeta h3 {
+  font-size: 1rem;
+  margin: 24px 0 10px;
+}
+
+.ayuda {
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+/* ---------- 6. Formulario ---------- */
+.campo {
+  margin-top: 18px;
+}
+
+.campo label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--verde-oscuro);
+}
+
+.campo .ayuda {
+  display: block;
+  margin: 2px 0 6px;
+}
+
+.campo input {
+  display: block;
+  width: 100%;
+  padding: 12px 14px;
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--texto);
+}
+
+.campo input:focus {
+  outline: 3px solid var(--verde-suave);
+}
+
+/* Mensaje de error debajo de cada campo (el script lo completa con textContent).
+   El borde rojo del campo lo pone el script con style.borderColor. */
+.error {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--rojo);
+}
+
+/* ---------- 7. Botones ---------- */
+.botones {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+button {
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: 1px solid var(--borde);
+  background: var(--tarjeta);
+  color: var(--verde-oscuro);
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--gris-suave);
+}
+
+button:focus-visible {
+  outline: 3px solid var(--verde-suave);
+  outline-offset: 2px;
+}
+
+button.primario {
+  flex: 1;
+  background: var(--verde-oscuro);
+  border-color: var(--verde-oscuro);
+  color: #fff;
+}
+
+button.primario:hover {
+  background: var(--verde-medio);
+}
+
+/* Aviso temporal "Datos restablecidos" */
+.aviso {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--verde-medio);
+}
+
+/* ---------- 8. Gastos fijos ---------- */
+.fijos {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--borde);
+}
+
+.fijos h3 {
+  margin-top: 0;
+}
+
+.fijos li,
+.total-fijo {
+  font-size: 0.88rem;
+  padding: 4px 0;
+}
+
+.total-fijo {
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--borde);
+  font-weight: 700;
+  color: var(--verde-oscuro);
+}
+
+.fijos .ayuda {
+  display: block;
+  margin-top: 4px;
+}
+
+/* ---------- 9. Resultados ----------
+   Cada resultado es un <p class="resultado"> que el script completa
+   con textContent. Mientras está vacío no se muestra (ver sección 11). */
+.vacio {
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+}
+
+.gasto-total {
+  margin-top: 14px;
+  padding: 18px 20px;
+  background: var(--verde-suave);
+  border-radius: 12px;
+  font-family: var(--fuente-titulos);
+  font-size: 1.6rem;
+  color: var(--verde-oscuro);
+}
+
+.desglose {
+  margin-top: 14px;
+}
+
+.fila {
+  padding: 6px 0;
+  font-size: 0.88rem;
+}
+
+.fila.total {
+  margin-top: 6px;
+  padding-top: 10px;
+  border-top: 1px solid var(--borde);
+  font-weight: 700;
+}
+
+/* Horas necesarias / disponibles */
+.par {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.dato {
+  padding: 14px 16px;
+  background: var(--gris-suave);
+  border-radius: 10px;
+  font-weight: 700;
+  color: var(--verde-oscuro);
+}
+
+/* Estado de producción: el texto lo explica; el color de fondo
+   lo asigna el script con style.backgroundColor y es solo un apoyo. */
+.estado {
+  margin-top: 12px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border-left: 6px solid var(--verde-medio);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--texto);
+}
+
+/* Capacidad máxima */
+.capacidades {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.capacidades .dato {
+  flex: 1;
+  background: var(--verde-suave);
+  border: 1px solid var(--borde);
+}
+
+.dato.centro {
+  text-align: center;
+}
+
+.aclaracion {
+  margin-top: 14px;
+  padding: 14px 18px;
+  background: var(--beige);
+  border-radius: 12px;
+  font-size: 0.85rem;
+}
+
+/* ---------- 10. Nota y pie ---------- */
+.nota {
+  margin-top: 28px;
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+}
+
+.pie {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 24px 32px;
+  border-top: 1px solid var(--borde);
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+}
+
+/* ---------- 11. Elementos vacíos: no ocupan espacio ---------- */
+.error:empty,
+.aviso:empty,
+.vacio:empty,
+.resultado:empty {
+  display: none;
+}
+
+/* ---------- 12. Diseño responsivo (celular y tablet) ---------- */
+@media (max-width: 800px) {
+  .grilla {
+    grid-template-columns: 1fr; /* una sola columna */
+  }
+
+  .portada {
+    height: 140px;
+  }
+
+  .intro h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contenedor {
+    padding: 24px 16px 16px;
+  }
+
+  .tarjeta {
+    padding: 18px;
+  }
+
+  .marca {
+    left: 16px;
+    bottom: 12px;
+  }
+
+  .par {
+    grid-template-columns: 1fr;
+  }
+
+  .capacidades {
+    flex-direction: column;
+  }
+
+  .gasto-total {
+    font-size: 1.3rem;
+  }
+
+  .pie {
+    padding: 16px;
+  }
+}
